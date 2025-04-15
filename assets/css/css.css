@@ -1,50 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap');
-body, html{
+
+body, html {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 }
-h1{
+
+h1 {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     background-color: #2b2a2a;
     color: white;
     font-family: "Lato", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    font-weight: 700;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-header{
+
+header {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-nav li a{
-    text-decoration: none;
-    color: white;
-    font-size: xx-large;
-}
-nav{
+
+nav {
     width: 80%;
     background-color: #4c3f58;
     margin-top: 20px;
     border-radius: 20px;
 }
-nav ul{
+
+nav ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 }
-nav li{
+
+nav li {
     cursor: pointer;
     position: relative;
-
 }
-nav li::after{
+
+nav li a {
+    text-decoration: none;
+    color: white;
+    font-size: xx-large;
+}
+
+nav li::after {
     content: '';
     position: absolute;
     height: 5px;
@@ -54,88 +65,107 @@ nav li::after{
     background: lightgreen;
     transition: width .2s;
 }
-nav li:hover::after{
+
+nav li:hover::after {
     width: 100%;
 }
-li img{
+
+li img {
     width: 200px;
     padding: 0;
     cursor: pointer;
 }
-li:not( .img) {
+
+li:not(.img) {
     padding: 20px;
     margin-top: 35px;
 }
-main{
+
+main {
     width: 80%;
     background-color: #463a50;
     height: fit-content;
     border-radius: 20px;
     margin-top: 50px;
-    
 }
-#O_mnie{
+
+#O_mnie {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-top: 50px;
+    flex-wrap: wrap;
 }
-.text{
+
+.text {
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 40%;
+    min-width: 300px;
 }
-.img{
+
+.img {
     margin-left: 40px;
 }
-.image img{
+
+.image img {
     transition: .5s;
     cursor: pointer;
 }
-.image img:hover{
+
+.image img:hover {
     scale: 1.1;
     transition: .5s;
 }
-#WhatDoIDo{
+
+#WhatDoIDo {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+    flex-wrap: wrap;
 }
 
-.textwdid{
+.textwdid {
     width: 35%;
+    min-width: 300px;
     margin-left: 20px;
     text-align: center;
 }
 
-#Portfolio{
+#Portfolio {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 100px;
 }
-.Biblioteka, .explorator, .todo, .rpg{
+
+.Biblioteka, .explorator, .todo, .rpg {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 50%;
+    min-width: 300px;
 }
-.Biblioteka img, .explorator img, .todo img, .rpg img{
+
+.Biblioteka img, .explorator img, .todo img, .rpg img {
     transition: .4s;
     cursor: pointer;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
 }
-.Biblioteka img:hover, .explorator img:hover, .todo img:hover, .rpg img:hover{
-    transition: .4s;
-    cursor: pointer;
+
+.Biblioteka img:hover, .explorator img:hover, .todo img:hover, .rpg img:hover {
     scale: 1.05;
 }
+
 #myBtn {
     display: none;
     position: fixed; 
@@ -150,25 +180,75 @@ main{
     padding: 15px;
     border-radius: 20%; 
     font-size: 18px; 
-  }
-  
-  #myBtn:hover {
-    background-color: #555; 
-  }
+    transition: .3s;
+}
 
-  #Contact{
+#myBtn:hover {
+    background-color: #555; 
+}
+
+#Contact {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  #Contact h2{
+    padding-bottom: 50px;
+}
+
+#Contact h2 {
     transition: .3s;
     cursor: pointer;
-  }
-  #Contact{
-    padding-bottom: 50px;
-  }
-  #Contact h2:hover {
-   scale: 1.1;
-    transition: .3s
-  }
+}
+
+#Contact h2:hover {
+    scale: 1.1;
+    transition: .3s;
+}
+
+
+@media (max-width: 1024px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+
+    .text, .textwdid {
+        width: 80%;
+        margin: 20px 0;
+    }
+
+    .img {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    #O_mnie, #WhatDoIDo {
+        flex-direction: column;
+    }
+
+    .Biblioteka, .explorator, .todo, .rpg {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    nav li a {
+        font-size: large;
+    }
+
+    li img {
+        width: 150px;
+    }
+
+    .Biblioteka img, .explorator img, .todo img, .rpg img {
+        max-width: 100%;
+    }
+
+    #myBtn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
